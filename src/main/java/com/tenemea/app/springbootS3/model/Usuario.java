@@ -28,8 +28,8 @@ public class Usuario {
     private String imagenPath;
     private String pdfPath;
     @Transient
-    private String pdfUrl;
+    private String cedulapdfUrl;
     @Transient
-    private String imagenUrl;
+    private String fotoimagenUrl;
 
 }

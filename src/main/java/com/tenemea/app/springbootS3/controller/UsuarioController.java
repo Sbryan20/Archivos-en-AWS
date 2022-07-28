@@ -22,15 +22,15 @@ public class UsuarioController {
     List<Usuario> getAll(){
         return usuarioRepository.findAll()
                 .stream()
-                .peek(usuario -> usuario.setImagenUrl(s3Service.getObjetcURL(usuario.getImagenPath())))
+                .peek(usuario -> usuario.setFotoimagenUrl(s3Service.getObjetcURL(usuario.getImagenPath())))
                 .collect(Collectors.toList());
     }
 
     @PostMapping("/create")
     Usuario create(@RequestBody Usuario usuario){
          usuarioRepository.save(usuario);
-         usuario.setImagenUrl(s3Service.getObjetcURL(usuario.getImagenPath()));
-         usuario.setPdfUrl((s3Service.getObjetcURL(usuario.getImagenPath())));
+         usuario.setFotoimagenUrl(s3Service.getObjetcURL(usuario.getImagenPath()));
+         usuario.setCedulapdfUrl((s3Service.getObjetcURL(usuario.getImagenPath())));
          return usuario;
     }
 }
